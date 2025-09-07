@@ -45,31 +45,57 @@ img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 - Preprocessing for CNN input
 - Real-world image handling
 
-## Exercise Implementations
+## Exercise Results
 
-### Exercise 1: Batch Image Prediction ✅
-- Processes all images in a folder automatically
-- Shows predictions with confidence scores
-- Handles multiple image formats (jpg, jpeg, png)
+### Exercise 1: CIFAR-10 Dataset Predictions ✅
+Used MobileNetV2 to predict on CIFAR-10 test images.
 
-### Exercise 2: Model Comparison ✅
-- Compares ResNet50 vs MobileNetV2 predictions
-- Side-by-side visualization
-- Shows different model strengths
+![CIFAR-10 Predictions](images/exercise_1.png)
+*CIFAR-10 predictions showing true labels vs MobileNetV2 predictions*
 
-### Exercise 3: Fine-Tuning Setup ✅
-- Creates custom classification head
-- Freezes pretrained layers
-- Ready for custom dataset training
+**Results:**
+- Tested on 8 random CIFAR-10 images
+- Mixed accuracy on small 32×32 pixel images
+- Model trained on high-res ImageNet struggles with low-res CIFAR-10
+- Shows domain adaptation challenges
 
-### Exercise 4: Feature Visualization ✅
-- Visualizes CNN activation maps
-- Shows different abstraction levels:
-  - Early layers: Edges and patterns
-  - Middle layers: Shapes and textures  
-  - Later layers: Complex objects
+### Exercise 2: ResNet vs MobileNet Comparison ✅
+Compared two different CNN architectures on the same cat image.
 
-## Key Advantages of Deep Learning
+![Model Comparison](images/exercise_2.png)
+*ResNet50 vs MobileNetV2 predictions on cat image*
+
+**Results:**
+- **ResNet50**: Predicted "Ibizan_hound" (85.12% confidence)
+- **MobileNetV2**: Predicted "Egyptian_cat" (15.70% confidence)
+- Different models can give different results
+- Shows importance of model selection
+
+### Exercise 3: Fine-Tuning on CIFAR-10 ✅
+Fine-tuned MobileNetV2 on airplane vs automobile classification.
+
+![Fine-Tuning Results](images/exercise_3.png)
+*Fine-tuned model trained on CIFAR-10 airplane vs automobile*
+
+**Results:**
+- Trained on 1000 samples (airplane vs automobile)
+- Achieved high accuracy on 2-class problem
+- Perfect predictions: 95.7% to 100% confidence
+- Shows transfer learning works well
+
+### Exercise 4: CNN Feature Visualization ✅
+Visualized what different CNN layers learn from the cat image.
+
+![Feature Maps](images/exercise_4.png)
+*CNN feature maps showing different levels of abstraction*
+
+**Results:**
+- **Early layers**: Detect edges and simple patterns
+- **Middle layers**: Combine features into shapes
+- **Later layers**: High-level object representations
+- Successfully visualized internal CNN processing
+
+## Advantages of Deep Learning
 
 ### Compared to Traditional Methods
 - **Automatic Features**: No manual feature engineering
@@ -77,44 +103,39 @@ img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 - **End-to-End**: Single pipeline from image to prediction
 - **Transfer Learning**: Use pretrained models for new tasks
 
-### Framework Comparison
-| Framework | Pros | Best For |
-|-----------|------|----------|
-| PyTorch | Research-friendly, dynamic | Experimentation, research |
-| TensorFlow | Production-ready, mobile | Deployment, mobile apps |
-
-## Practical Applications
-- **Image Classification**: Categorize photos automatically
-- **Medical Imaging**: Detect diseases in scans
-- **Quality Control**: Identify defects in manufacturing
-- **Content Moderation**: Filter inappropriate images
-- **Mobile Apps**: Real-time image recognition
-
 ## What We Learned
-1. **CNNs automatically learn features** from images
-2. **Pretrained models save time** and work very well
-3. **Transfer learning** lets us use powerful models on new tasks
-4. **Different frameworks** have different strengths
-5. **Feature visualization** helps understand what CNNs learn
-6. **Deep learning is powerful** but needs more resources than traditional methods
 
-## Tools Used
-- **PyTorch**: Deep learning framework with ResNet
-- **TensorFlow/Keras**: Production-ready framework with MobileNet
-- **OpenCV**: Image preprocessing and loading
-- **Matplotlib**: Visualization and plotting
-- **PIL**: Image handling and processing
+### Observations
+1. **CIFAR-10 Challenge**: ImageNet models struggle with small 32×32 images
+2. **Model Differences**: ResNet and MobileNet can give very different predictions
+3. **Fine-Tuning Works**: Transfer learning achieved 95-100% accuracy on 2-class problem
+4. **Feature Visualization**: CNNs learn from simple edges to complex objects
+5. **Framework Choice Matters**: PyTorch vs TensorFlow have different strengths
+
+### Important Insights
+- **Domain Adaptation**: Models trained on one dataset may not work well on another
+- **Image Resolution**: High-res models prefer high-res inputs
+- **Transfer Learning**: Much faster than training from scratch
+- **Feature Learning**: CNNs automatically discover useful patterns
 
 ## Conclusion
-Deep learning represents a major advance in computer vision. While traditional methods (Labs 8-9) are fast and interpretable, deep learning provides:
 
-- **Higher accuracy** on complex vision tasks
-- **Automatic feature learning** without manual engineering
-- **Pretrained models** that work out-of-the-box
-- **Transfer learning** for custom applications
+Deep learning is powerful but has important considerations:
 
-Both approaches have their place:
-- Use **traditional methods** for simple, fast applications
-- Use **deep learning** for complex, high-accuracy requirements
+### What Works Well
+- **Transfer learning** on similar tasks (airplane vs automobile: 95-100% accuracy)
+- **High-resolution images** with pretrained models
+- **Feature visualization** shows CNN learning process
+- **Multiple frameworks** available (PyTorch, TensorFlow)
 
-Lab 10 successfully introduced the fundamentals of modern computer vision using deep learning!
+### Challenges Observed  
+- **Domain mismatch** between training (ImageNet) and test (CIFAR-10) data
+- **Different models** can disagree on same image
+- **Requires more computing power** than traditional methods
+- **Less interpretable** than simpler algorithms
+
+### When to Use Each Approach
+| Method | Best For | Why |
+|--------|----------|-----|
+| Traditional (Labs 8-9) | Fast, simple tasks | Interpretable, lightweight |
+| Deep Learning (Lab 10) | Complex, high-accuracy tasks | Automatic features, powerful |
