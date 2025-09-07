@@ -1,3 +1,7 @@
+Name                                         ID
+Kirubel Sentayehu                     GSR/7879/17
+Surafel Sentayehu                      GSR/5928/17
+
 # Lab 9: Object Detection Report
 
 ## What We Did

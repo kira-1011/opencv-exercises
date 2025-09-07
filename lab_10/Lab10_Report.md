@@ -1,3 +1,7 @@
+Name                                         ID
+Kirubel Sentayehu                     GSR/7879/17
+Surafel Sentayehu                      GSR/5928/17
+
 # Lab 10: Deep Learning for Vision Report
 
 ## What We Did
