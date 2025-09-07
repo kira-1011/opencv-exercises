@@ -52,11 +52,47 @@ while True:
 ![Live Face Detection](images/live_cam_face_detection.png)
 *Real-time face detection working on live webcam feed*
 
-## Exercises Available
-1. **Eye/Smile Detection** - Use haarcascade_eye.xml or haarcascade_smile.xml
-2. **Video Processing** - Process video files frame by frame
-3. **Parameter Tuning** - Adjust scale, winStride for different performance
-4. **Combined Pipeline** - Use both methods together
+## Exercise Results
+
+### Exercise 1: Eye and Smile Detection ✅
+Used `face_smile.jpg` to detect faces, eyes, and smiles simultaneously.
+
+![Face, Eye, and Smile Detection](images/face_eye_smile_detection.png)
+*Successfully detected face (blue), eyes (green), and smile (red) in the same image*
+
+### Exercise 2: Video Processing with Save ✅
+Processed `people.mp4` frame-by-frame and saved results as `people_detected.mp4`.
+
+![Video Processing Results](videos/people_detected.gif)
+*Frame-by-frame pedestrian detection with statistics overlay*
+
+**Statistics:**
+- Total frames: 596
+- Total detections: 139 people
+- Average: 0.23 people per frame
+
+### Exercise 3: HOG Parameter Tuning ✅
+Tested three different parameter settings to compare speed vs accuracy:
+
+**High Precision (winStride=4, scale=1.02):**
+![High Precision](images/HOG_Tuning_Precision_8.png)
+*8 detections - Most accurate but slower*
+
+**Balanced (winStride=8, scale=1.05):**
+![Balanced](images/HOG_Tuning_Precision_4.png)
+*4 detections - Good balance of speed and accuracy*
+
+**Fast Detection (winStride=16, scale=1.1):**
+![Fast Detection](images/HOG_Tuning_Precision_1.png)
+*1 detection - Fastest but less sensitive*
+
+### Exercise 4: Combined Detection Pipeline ✅
+Used both Haar cascades and HOG+SVM together on the same image.
+
+![Combined Detection](images/combined_detection.png)
+*Combined pipeline: Blue boxes = Faces, Green boxes = Pedestrians*
+
+**Results:** 0 faces, 4 pedestrians detected in street scene
 
 ## Detection Results Analysis
 
@@ -96,16 +132,10 @@ Based on our test images, we can see:
 - ✅ Works in complex scenes
 - ❌ Slower than Haar
 
-## Practical Uses
-- Security cameras
-- Self-driving cars
-- Crowd monitoring
-- Photo tagging
-- Safety systems
 
 ## Conclusion
 Both methods work well for different purposes:
 - Use **Haar Cascades** for fast face detection
 - Use **HOG + SVM** for robust people detection
 - Both run in real-time on regular computers
-- No deep learning or special hardware needed
+- Without deep learning or special hardware needed
