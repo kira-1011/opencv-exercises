@@ -1,0 +1,4 @@
+train: e:\ComputerVision\part-II\lab_11\cifar10_yolo\images\train
+val: e:\ComputerVision\part-II\lab_11\cifar10_yolo\images\val
+nc: 10
+names: ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']

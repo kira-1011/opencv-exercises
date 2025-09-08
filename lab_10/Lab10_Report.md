@@ -54,7 +54,7 @@ img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 ### Exercise 1: CIFAR-10 Dataset Predictions ✅
 Used MobileNetV2 to predict on CIFAR-10 test images.
 
-![CIFAR-10 Predictions](images/exercise_1.png)
+![CIFAR-10 Predictions](./images/exercise_1.png)
 *CIFAR-10 predictions showing true labels vs MobileNetV2 predictions*
 
 **Results:**
